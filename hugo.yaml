@@ -1,0 +1,17 @@
+baseURL: 'http://localhost:1313/'
+languageCode: 'en-us'
+title: '我的测试博客'
+theme: 'hugo-book'
+params:
+  # BookMenuBundle:  "none"
+  BookSection: 'docs'
+  BookDateFormat: '2006-01-02'
+  # BookToC: true
+  # BookComments: true
+
+#sectionPagesMenu: 'main'
+#[menu]
+#  [[menu.main]]
+#    identifier: "filetree"
+#    name: "File Tree"
+#    url: "/docs/"
