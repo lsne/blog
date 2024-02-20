@@ -6,8 +6,10 @@ params:
   # BookMenuBundle:  "none"
   BookSection: 'docs'
   BookDateFormat: '2006-01-02'
+  BookRepo: 'https://github.com/lsne/blog'
   # BookToC: true
   # BookComments: true
+  BookComments: true
 
 #sectionPagesMenu: 'main'
 #[menu]
