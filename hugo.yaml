@@ -4,7 +4,7 @@ title: '我的测试博客'
 theme: 'hugo-book'
 params:
   # BookMenuBundle:  "none"
-  BookSection: 'docs'
+  BookSection: 'notes'
   BookDateFormat: '2006-01-02'
   BookRepo: 'https://github.com/lsne/blog'
   # BookToC: true
