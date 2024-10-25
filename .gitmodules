@@ -1,6 +1,0 @@
-[submodule "themes/hugo-book"]
-	path = themes/hugo-book
-	url = https://github.com/alex-shpak/hugo-book
-[submodule "content/notes"]
-	path = content/notes
-	url = git@github.com:lsne/notes.git
