@@ -63,7 +63,7 @@ function nav(): DefaultTheme.NavItem[] {
     text: '开发语言',
     items: [{
         text: 'C & C++',
-        link: '/02-languages/01-C和C++/01-01-C++开发环境准备'
+        link: '/02-languages/01-C++/01-01-C++开发环境准备'
       },{
         text: 'Rust',
         link: '/02-languages/02-Rust/01-Rust-安装'
@@ -151,7 +151,7 @@ function sidebarTools(): DefaultTheme.SidebarItem[] {
     // collapsed: false,
     items: [
       { text: '环境与工具', base: '/01-tools/01-env/', link: '01-Windows-环境准备' },
-      { text: '开发语言', base: '/02-languages/01-C和C++/', link: '01-01-C++开发环境准备' },
+      { text: '开发语言', base: '/02-languages/01-C++/', link: '01-01-C++开发环境准备' },
       { text: '存储与数据库', base: '/03-databases/01-ceph/getting-started', link: 'getting-started' },
       { text: 'kubernetes', base: '/04-kubernetes/getting-started', link: 'getting-started' },
       { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' },
@@ -186,7 +186,7 @@ function sidebarLanguages(): DefaultTheme.SidebarItem[] {
     // collapsed: false,
     items: [
       { text: '环境与工具', base: '/01-tools/01-env/', link: '01-Windows-环境准备' },
-      { text: '开发语言', base: '/02-languages/01-C和C++/', link: '01-01-C++开发环境准备' },
+      { text: '开发语言', base: '/02-languages/01-C++/', link: '01-01-C++开发环境准备' },
       { text: '存储与数据库', base: '/03-databases/01-ceph/getting-started', link: 'getting-started' },
       { text: 'kubernetes', base: '/04-kubernetes/getting-started', link: 'getting-started' },
       { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' },
@@ -221,7 +221,7 @@ function sidebarDatabases(): DefaultTheme.SidebarItem[] {
     // collapsed: false,
     items: [
       { text: '环境与工具', base: '/01-tools/01-env/', link: '01-Windows-环境准备' },
-      { text: '开发语言', base: '/02-languages/01-C和C++/', link: '01-01-C++开发环境准备' },
+      { text: '开发语言', base: '/02-languages/01-C++/', link: '01-01-C++开发环境准备' },
       { text: '存储与数据库', base: '/03-databases/01-ceph/getting-started', link: 'getting-started' },
       { text: 'kubernetes', base: '/04-kubernetes/getting-started', link: 'getting-started' },
       { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' },
@@ -256,7 +256,7 @@ function sidebarKubernetes(): DefaultTheme.SidebarItem[] {
     // collapsed: false,
     items: [
       { text: '环境与工具', base: '/01-tools/01-env/', link: '01-Windows-环境准备' },
-      { text: '开发语言', base: '/02-languages/01-C和C++/', link: '01-01-C++开发环境准备' },
+      { text: '开发语言', base: '/02-languages/01-C++/', link: '01-01-C++开发环境准备' },
       { text: '存储与数据库', base: '/03-databases/01-ceph/getting-started', link: 'getting-started' },
       { text: 'kubernetes', base: '/04-kubernetes/getting-started', link: 'getting-started' },
       { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' },
@@ -291,7 +291,7 @@ function sidebarServices(): DefaultTheme.SidebarItem[] {
     // collapsed: false,
     items: [
       { text: '环境与工具', base: '/01-tools/01-env/', link: '01-Windows-环境准备' },
-      { text: '开发语言', base: '/02-languages/01-C和C++/', link: '01-01-C++开发环境准备' },
+      { text: '开发语言', base: '/02-languages/01-C++/', link: '01-01-C++开发环境准备' },
       { text: '存储与数据库', base: '/03-databases/01-ceph/getting-started', link: 'getting-started' },
       { text: 'kubernetes', base: '/04-kubernetes/getting-started', link: 'getting-started' },
       { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' },
@@ -313,7 +313,7 @@ function sidebarOther(): DefaultTheme.SidebarItem[] {
     // collapsed: false,
     items: [
       { text: '环境与工具', base: '/01-tools/01-env/', link: '01-Windows-环境准备' },
-      { text: '开发语言', base: '/02-languages/01-C和C++/', link: '01-01-C++开发环境准备' },
+      { text: '开发语言', base: '/02-languages/01-C++/', link: '01-01-C++开发环境准备' },
       { text: '存储与数据库', base: '/03-databases/01-ceph/getting-started', link: 'getting-started' },
       { text: 'kubernetes', base: '/04-kubernetes/getting-started', link: 'getting-started' },
       { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' },
