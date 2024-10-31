@@ -3,7 +3,7 @@ import { DefaultTheme, defineConfig } from 'vitepress'
 export default defineConfig({
   base: "/blog/",
   head: [['link', { rel: 'icon', href: '/blog/favicon.ico' }]],
-  title: "随笔",
+  title: "我的随笔",
   description: "风雨蹉跎十二载",
   markdown: {
     math: true,
@@ -22,12 +22,12 @@ export default defineConfig({
     },
     outline: {
       label: '页面导航',
-      level : "deep" // 可以是: [1,2,3,4,5,6] | 'deep' | false
+      level : 'deep' // 可以是: [1,2] | [1,3] | [2,4] | 'deep' | false  // [2,5] 表示展示 2,3,4,5 级标题
     },
-    editLink: {
-      pattern: 'https://github.com/lsne/blog/master/:path',
-      text: '在 Github 上编辑此页面'
-    },
+    // editLink: {   // 每次部署都会从私有仓库拷贝全量的笔记软件, 这里的在线编辑没有意义
+    //   pattern: 'https://github.com/lsne/blog/master/:path',
+    //   text: '在 Github 上编辑此页面'
+    // },
     lastUpdated: {
       text: '最后更新于',
       formatOptions: {
@@ -41,7 +41,6 @@ export default defineConfig({
       '/03-databases/': { base: '/03-databases/', items: sidebarDatabases() },
       '/04-kubernetes/': { base: '/04-kubernetes/', items: sidebarKubernetes() },
       '/05-services/': { base: '/05-services/', items: sidebarServices() },
-      '/06-other/': { base: '/02-other/', items: sidebarOther() },
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/lsne/blog' }
@@ -119,10 +118,7 @@ function nav(): DefaultTheme.NavItem[] {
       },{
         text: 'prometheus',
         link: '/05-services/03-prometheus/getting-started'
-      }]},{
-    text: "其他",
-    link: '/06-other/getting-started'
-  }]
+      }]}]
 }
 
 function sidebarTools(): DefaultTheme.SidebarItem[] {
@@ -147,15 +143,14 @@ function sidebarTools(): DefaultTheme.SidebarItem[] {
       { text: '代理工具', link: '01-02-代理工具' }
     ]
   },{
-    text: '本站文档',
+    text: '本站文档库',
     // collapsed: false,
     items: [
       { text: '环境与工具', base: '/01-tools/01-env/', link: '01-Windows-环境准备' },
       { text: '开发语言', base: '/02-languages/01-C++/', link: '01-01-C++开发环境准备' },
       { text: '存储与数据库', base: '/03-databases/01-ceph/getting-started', link: 'getting-started' },
       { text: 'kubernetes', base: '/04-kubernetes/getting-started', link: 'getting-started' },
-      { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' },
-      { text: '其他', base: '/06-other/', link: 'getting-started' }
+      { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' }
     ]
   }]
 }
@@ -182,15 +177,14 @@ function sidebarLanguages(): DefaultTheme.SidebarItem[] {
       { text: '代理工具', link: '01-02-代理工具' }
     ]
   },{
-    text: '本站文档',
+    text: '本站文档库',
     // collapsed: false,
     items: [
       { text: '环境与工具', base: '/01-tools/01-env/', link: '01-Windows-环境准备' },
       { text: '开发语言', base: '/02-languages/01-C++/', link: '01-01-C++开发环境准备' },
       { text: '存储与数据库', base: '/03-databases/01-ceph/getting-started', link: 'getting-started' },
       { text: 'kubernetes', base: '/04-kubernetes/getting-started', link: 'getting-started' },
-      { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' },
-      { text: '其他', base: '/06-other/', link: 'getting-started' }
+      { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' }
     ]
   }]
 }
@@ -217,15 +211,14 @@ function sidebarDatabases(): DefaultTheme.SidebarItem[] {
       { text: '代理工具', link: '01-02-代理工具' }
     ]
   },{
-    text: '本站文档',
+    text: '本站文档库',
     // collapsed: false,
     items: [
       { text: '环境与工具', base: '/01-tools/01-env/', link: '01-Windows-环境准备' },
       { text: '开发语言', base: '/02-languages/01-C++/', link: '01-01-C++开发环境准备' },
       { text: '存储与数据库', base: '/03-databases/01-ceph/getting-started', link: 'getting-started' },
       { text: 'kubernetes', base: '/04-kubernetes/getting-started', link: 'getting-started' },
-      { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' },
-      { text: '其他', base: '/06-other/', link: 'getting-started' }
+      { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' }
     ]
   }]
 }
@@ -252,15 +245,14 @@ function sidebarKubernetes(): DefaultTheme.SidebarItem[] {
       { text: '代理工具', link: '01-02-代理工具' }
     ]
   },{
-    text: '本站文档',
+    text: '本站文档库',
     // collapsed: false,
     items: [
       { text: '环境与工具', base: '/01-tools/01-env/', link: '01-Windows-环境准备' },
       { text: '开发语言', base: '/02-languages/01-C++/', link: '01-01-C++开发环境准备' },
       { text: '存储与数据库', base: '/03-databases/01-ceph/getting-started', link: 'getting-started' },
       { text: 'kubernetes', base: '/04-kubernetes/getting-started', link: 'getting-started' },
-      { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' },
-      { text: '其他', base: '/06-other/', link: 'getting-started' }
+      { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' }
     ]
   }]
 }
@@ -287,37 +279,14 @@ function sidebarServices(): DefaultTheme.SidebarItem[] {
       { text: '代理工具', link: '01-02-代理工具' }
     ]
   },{
-    text: '本站文档',
+    text: '本站文档库',
     // collapsed: false,
     items: [
       { text: '环境与工具', base: '/01-tools/01-env/', link: '01-Windows-环境准备' },
       { text: '开发语言', base: '/02-languages/01-C++/', link: '01-01-C++开发环境准备' },
       { text: '存储与数据库', base: '/03-databases/01-ceph/getting-started', link: 'getting-started' },
       { text: 'kubernetes', base: '/04-kubernetes/getting-started', link: 'getting-started' },
-      { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' },
-      { text: '其他', base: '/06-other/', link: 'getting-started' }
-    ]
-  }]
-}
-
-function sidebarOther(): DefaultTheme.SidebarItem[] {
-  return [{
-    text: '其他',
-    collapsed: false,
-    items: [
-      { text: '简介', link: 'dbup-introduction' },
-      { text: '快速开始', link: 'dbup-getting-started' }
-    ]
-  },{
-    text: '本站文档',
-    // collapsed: false,
-    items: [
-      { text: '环境与工具', base: '/01-tools/01-env/', link: '01-Windows-环境准备' },
-      { text: '开发语言', base: '/02-languages/01-C++/', link: '01-01-C++开发环境准备' },
-      { text: '存储与数据库', base: '/03-databases/01-ceph/getting-started', link: 'getting-started' },
-      { text: 'kubernetes', base: '/04-kubernetes/getting-started', link: 'getting-started' },
-      { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' },
-      { text: '其他', base: '/06-other/', link: 'getting-started' }
+      { text: '系统与软件', base: '/05-services/02-linux/', link: 'getting-started' }
     ]
   }]
 }
