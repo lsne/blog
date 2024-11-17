@@ -6,8 +6,9 @@ hero:
   name: "我的随笔"
   text: "风雨蹉跎十二载"
   tagline: 刚毕业前几年由于各种原因没有记录笔记, 之后的工作学习笔记全在这里了。将笔记做到页面上方便以后使用时可以随时随地查看。
-      src: /vitepress-logo-large.webp
-      alt: VitePress
+  image:
+    src: /vitepress-logo-large.webp
+    alt: VitePress
   actions:
     - theme: brand
       text: 开发语言
