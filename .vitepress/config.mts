@@ -51,68 +51,63 @@ export default defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [{
     text: '环境与工具',
-    link: '/01-tools/01-Windows-环境准备'
+    link: '/01-tools/05-01-Git-使用'
   },{
     text: '开发语言',
     items: [{
         text: 'C & C++',
-        link: '/02-languages/01-C++/01-01-C++开发环境准备'
+        link: '/02-languages/01-C++/01-02-C++开发环境准备'
       },{
         text: 'Rust',
-        link: '/02-languages/02-Rust/01-Rust-安装'
+        link: '/02-languages/02-Rust/01-01-Rust-开发环境准备'
       },{
         text: 'Go',
-        link: '/02-languages/03-Go/01-Go-安装'
+        link: '/02-languages/03-Go/01-01-Go-开发环境准备'
       },{
         text: 'Python',
-        link: '/02-languages/04-Python/01-Python-安装'
+        link: '/02-languages/04-Python/01-01-Python3-编译安装'
       },{
         text: 'Shell',
-        link: '/02-languages/02-Shell/01-常用语法'
+        link: '/02-languages/05-Shell/03-02-Shell-语法和特殊字符'
       },{
         text: 'Node.js',
-        link: '/02-languages/02-Rust/01-Node.js-安装'
+        link: '/02-languages/06-Node.js/01-01-Node.js-安装部署'
       }]},{
     text: "存储与数据库",
     items: [{
         text: 'Ceph',
-        link: '/03-databases/01-ceph/getting-started'
+        link: '/03-databases/01-Ceph/01-01-Ceph-部署须知'
       },{
         text: 'MySQL',
-        link: '/03-databases/02-mysql/getting-started'
+        link: '/03-databases/02-MySQL/00-01-MySQL-知识点总结'
       },{
         text: 'PostgreSQL',
-        link: '/03-databases/03-postgresql/getting-started'
+        link: '/03-databases/03-PostgreSQL/01-03-PostgreSQL-编译安装'
       },{
         text: 'MongoDB',
-        link: '/03-databases/04-mongodb/getting-started'
+        link: '/03-databases/04-MongoDB/00-01-MongoDB-知识点总结'
       },{
         text: 'Redis',
-        link: '/03-databases/05-redis/getting-started'
+        link: '/03-databases/05-Redis/00-01-Redis-知识点总结'
       },{
         text: 'ElasticStack',
-        link: '/03-databases/06-ElasticStack/getting-started'
+        link: '/03-databases/06-ElasticStack/01-01-ElasticStack-安装部署'
       },{
         text: 'Clickhouse',
-        link: '/03-databases/07-Clickhouse/getting-started'
+        link: '/03-databases/07-Clickhouse/02-01-Clickhouse-安装部署'
       },{
         text: 'etcd',
-        link: '/03-databases/08-etcd/getting-started'
+        link: '/03-databases/08-etcd/02-01-etcd-部署'
       },{
         text: '达梦8',
-        link: '/03-databases/09-dm8/getting-started'
+        link: '/03-databases/09-达梦8/02-01-达梦8-单机安装'
       }]},{
     text: "kubernetes",
-    link: '/04-kubernetes/getting-started'
+    link: '/04-kubernetes/01-Kubernetes-基础/01-01-二进制-部署-k8s-Centos7.9'
   },{
     text: "系统与软件",
-    items: [{
-        text: 'Linux',
-        link: '/05-linux/02-linux/getting-started'
-      },{
-        text: 'prometheus',
-        link: '/05-linux/03-prometheus/getting-started'
-      }]}]
+    link: '/05-linux/02-Linux/03-03-Linux-笔记'
+  }]
 }
 
 function sidebarTools(): DefaultTheme.SidebarItem[] {
@@ -148,7 +143,7 @@ function sidebarTools(): DefaultTheme.SidebarItem[] {
       { text: '环境与工具', base: '/01-tools/', link: '05-01-Git-使用' },
       { text: '开发语言', base: '/02-languages/01-C++/', link: '01-02-C++开发环境准备' },
       { text: '存储与数据库', base: '/03-databases/01-Ceph/', link: '01-02-ceph-二进制部署-Ubuntu-22.04' },
-      { text: 'kubernetes', base: '/04-kubernetes/01-kubernetes-基础/', link: '01-01-二进制-部署-k8s-Centos7.9' },
+      { text: 'kubernetes', base: '/04-kubernetes/01-Kubernetes-基础/', link: '01-01-二进制-部署-k8s-Centos7.9' },
       { text: '系统与软件', base: '/05-linux/02-Linux/', link: '03-03-Linux-笔记' }
     ]
   }]
@@ -158,7 +153,7 @@ function sidebarLanguages(): DefaultTheme.SidebarItem[] {
   return [{
     text: 'C & C++',
     base: '/02-languages/01-C++/',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: '编译', link: '01-01-编译' },
       { text: 'C++开发环境准备', link: '01-02-C++开发环境准备' },
@@ -170,20 +165,20 @@ function sidebarLanguages(): DefaultTheme.SidebarItem[] {
   },{
     text: 'Rust',
     base: '/02-languages/02-Rust/',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: 'Rust 开发环境准备', link: '01-01-Rust-开发环境准备' },
       { text: 'Cargo 使用', link: '01-02-Cargo-使用' },
       { text: 'Rust 交叉编译', link: '01-03-Rust-交叉编译' },
       { text: 'Rust 开源库整理', link: '02-01-Rust-开源库整理' },
       { text: 'Rust 基础语法', link: '03-03-Rust-基础语法' },
-      { text: 'Rust 包 错误处理 测试', link: '03-04-Rust-包-错误处理-测试' },
-      { text: 'Rust 智能指针 并发 高级特性', link: '03-05-Rust-智能指针-并发-高级特性' },
+      { text: 'Rust 包-错误处理-测试', link: '03-04-Rust-包-错误处理-测试' },
+      // { text: 'Rust 智能指针-并发-高级特性', link: '03-05-Rust-智能指针-并发-高级特性' },
     ]
   },{
     text: 'Go',
     base: '/02-languages/03-Go/',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: 'Go 开发环境准备', link: '01-01-Go-开发环境准备' },
       { text: 'git pre commit', link: '01-02-git-pre-commit' },
@@ -203,7 +198,7 @@ function sidebarLanguages(): DefaultTheme.SidebarItem[] {
   },{
     text: 'Python',
     base: '/02-languages/04-Python/',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: 'Python3 编译安装', link: '01-01-Python3-编译安装' },
       { text: 'Python 开源库整理', link: '02-01-Python-开源库整理' },
@@ -215,7 +210,7 @@ function sidebarLanguages(): DefaultTheme.SidebarItem[] {
   },{
     text: 'Shell',
     base: '/02-languages/05-Shell/',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: 'Shell 语法和特殊字符', link: '03-02-Shell-语法和特殊字符' },
       { text: 'Shell 笔记', link: '03-03-Shell-笔记' },
@@ -223,20 +218,20 @@ function sidebarLanguages(): DefaultTheme.SidebarItem[] {
   },{
     text: 'Node.js',
     base: '/02-languages/06-Node.js/',
-    collapsed: false,
+    collapsed: true,
     items: [
-      { text: 'Node', link: '01-01-Node' },
-      { text: 'Windows Node', link: '01-02-Windows-Node' },
-      { text: 'Node', link: '01-03-Node' },
-      { text: 'node', link: '01-04-node' },
-      { text: 'nvm node', link: '01-04-nvm-node' },
+      { text: 'Node.js 安装部署', link: '01-01-Node.js-安装部署' }, 
+      { text: 'Windows Node.js 安装', link: '01-02-Windows-Node.js-安装' },
+      { text: 'Node.js 新项目初始化', link: '01-03-Node.js-新项目初始化' },
+      { text: 'Node.js require import 区别', link: '01-04-Node.js-require-import-区别' },
+      { text: 'nvm Node.js 安装', link: '01-04-nvm-Node.js-安装' },
       { text: 'javascript 基础语法', link: '03-03-javascript-基础语法' },
       { text: 'Typescript 基础语法', link: '03-04-Typescript-基础语法' },
       { text: 'VUE2 基础语法', link: '03-05-VUE2-基础语法' },
       { text: 'VUE3 基础语法', link: '03-06-VUE3-基础语法' },
       { text: 'Vue3 快速上手', link: '03-07-Vue3-快速上手' },
-      { text: 'vue pure admin 修剪', link: '05-01-vue-pure-admin-修剪' },
-      { text: 'Node', link: '05-02-Node' },
+      { text: 'vue-pure-admin 修剪', link: '05-01-vue-pure-admin-修剪' },
+      { text: 'Node.js 常用模块', link: '05-02-Node.js-常用模块' },
       { text: 'webpack', link: '05-03-webpack' },
       { text: 'express web开发框架的使用', link: '05-04-express-web开发框架的使用' },
       { text: 'element ui', link: '05-05-element-ui' },
@@ -247,7 +242,7 @@ function sidebarLanguages(): DefaultTheme.SidebarItem[] {
       { text: '环境与工具', base: '/01-tools/', link: '05-01-Git-使用' },
       { text: '开发语言', base: '/02-languages/01-C++/', link: '01-02-C++开发环境准备' },
       { text: '存储与数据库', base: '/03-databases/01-Ceph/', link: '01-02-ceph-二进制部署-Ubuntu-22.04' },
-      { text: 'kubernetes', base: '/04-kubernetes/01-kubernetes-基础/', link: '01-01-二进制-部署-k8s-Centos7.9' },
+      { text: 'kubernetes', base: '/04-kubernetes/01-Kubernetes-基础/', link: '01-01-二进制-部署-k8s-Centos7.9' },
       { text: '系统与软件', base: '/05-linux/02-Linux/', link: '03-03-Linux-笔记' }
     ]
   }]
@@ -257,13 +252,13 @@ function sidebarDatabases(): DefaultTheme.SidebarItem[] {
   return [{
     text: 'Ceph',
     base: '/03-databases/01-Ceph/',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: 'Ceph 部署须知', link: '01-01-Ceph-部署须知' },
       { text: 'ceph 二进制部署 Ubuntu 22.04', link: '01-02-ceph-二进制部署-Ubuntu-22.04' },
       { text: 'ceph cephadm 部署 Ubuntu 22.04', link: '01-03-ceph-cephadm-部署-Ubuntu-22.04' },
       { text: 'ceph deploy 部署集群 Centos 7.9', link: '01-04-ceph-deploy-部署集群-Centos-7.9' },
-      { text: 'ceph ansible 部署集群 Centos7.9', link: '01-05-ceph-ansible-部署集群-Centos7.0' },
+      { text: 'ceph ansible 部署集群 Centos7.9', link: '01-05-ceph-ansible-部署集群-Centos7.9' },
       { text: 'ceph anbile 部署的集群手动创建rgw节点', link: '01-06-ceph-anbile-部署的集群手动创建rgw节点' },
       { text: 'ceph集群配置文件', link: '02-01-ceph集群配置文件' },
       { text: 'ceph 常见运维场景', link: '03-01-ceph-常见运维场景' },
@@ -281,7 +276,7 @@ function sidebarDatabases(): DefaultTheme.SidebarItem[] {
   },{
     text: 'MySQL',
     base: '/03-databases/02-MySQL/',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: 'MySQL 知识点总结', link: '00-01-MySQL-知识点总结' },
       { text: 'MySQL 配置文件', link: '02-02-MySQL-配置文件' },
@@ -299,7 +294,7 @@ function sidebarDatabases(): DefaultTheme.SidebarItem[] {
   },{
     text: 'PostgreSQL',
     base: '/03-databases/03-PostgreSQL/',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: 'PostgreSQL 编译安装', link: '01-03-PostgreSQL-编译安装' },
       { text: 'PostgreSQL 编译第三方插件', link: '01-04-PostgreSQL-编译第三方插件' },
@@ -327,10 +322,10 @@ function sidebarDatabases(): DefaultTheme.SidebarItem[] {
   },{
     text: 'MongoDB',
     base: '/03-databases/04-MongoDB/',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: 'MongoDB 知识点总结', link: '00-01-MongoDB-知识点总结' },
-      { text: '麒麟v10 编译 MongoDB 6', link: '01-01-麒麟v10-编译-MongoDB-6' },
+      { text: '麒麟v10 编译 MongoDB 6.0.5', link: '01-01-麒麟v10-编译-MongoDB-6.0.5' },
       { text: 'MongoDB 配置文件', link: '02-02-MongoDB-配置文件' },
       { text: 'MongoDB 基本操作', link: '03-01-MongoDB-基本操作' },
       { text: 'MongoDB 索引', link: '03-02-MongoDB-索引' },
@@ -348,7 +343,7 @@ function sidebarDatabases(): DefaultTheme.SidebarItem[] {
   },{
     text: 'Redis',
     base: '/03-databases/05-Redis/',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: 'Redis 知识点总结', link: '00-01-Redis-知识点总结' },
       { text: 'Centos6.5 编译 Redis 6.0.20', link: '01-03-Centos6.5-编译-Redis-6.0.20' },
@@ -361,7 +356,7 @@ function sidebarDatabases(): DefaultTheme.SidebarItem[] {
   },{
     text: 'ElasticStack',
     base: '/03-databases/06-ElasticStack/',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: 'ElasticStack 安装部署', link: '01-01-ElasticStack-安装部署' },
       { text: 'ElasticStack 基本操作', link: '01-02-ElasticStack-基本操作' },
@@ -370,30 +365,30 @@ function sidebarDatabases(): DefaultTheme.SidebarItem[] {
   },{
     text: 'Clickhouse',
     base: '/03-databases/07-Clickhouse/',
-    collapsed: false,
+    collapsed: true,
     items: [
-      { text: 'Kafka 安装部署', link: '01-01-01-01-Kafka-安装部署' },
-      { text: 'Kafka 常用操作', link: '01-01-01-02-Kafka-常用操作' },
-      { text: 'Clickhouse 安装部署', link: '01-01-02-01-Clickhouse-安装部署' },
-      { text: 'Clickhouse 常用操作', link: '01-01-02-02-Clickhouse-常用操作' },
-      { text: 'Clickhouse 问题处理', link: '01-01-04-01-Clickhouse-问题处理' },
-      { text: '日志收集链接工具', link: '01-01-11-01-日志收集链接工具' },
+      { text: 'Kafka 安装部署', link: '01-01-Kafka-安装部署' },
+      { text: 'Kafka 常用操作', link: '01-02-Kafka-常用操作' },
+      { text: 'Clickhouse 安装部署', link: '02-01-Clickhouse-安装部署' },
+      { text: 'Clickhouse 常用操作', link: '02-02-Clickhouse-常用操作' },
+      { text: 'Clickhouse 问题处理', link: '04-01-Clickhouse-问题处理' },
+      { text: '日志收集链接工具', link: '11-01-日志收集链接工具' },
     ]
   },{
     text: 'etcd',
     base: '/03-databases/08-etcd/',
-    collapsed: false,
+    collapsed: true,
     items: [
-      { text: 'etcd 部署', link: '01-01-02-01-etcd-部署' },
-      { text: 'etcd 停机迁移', link: '01-01-02-02-etcd-停机迁移' },
-      { text: 'etcd 常用命令', link: '01-01-03-03-etcd-常用命令' },
-      { text: 'etcd compact 和 内存', link: '01-01-03-06-etcd-compact-和-内存' },
-      { text: 'etcd 错误处理', link: '01-01-04-01-etcd-错误处理' },
+      { text: 'etcd 部署', link: '02-01-etcd-部署' },
+      { text: 'etcd 停机迁移', link: '02-02-etcd-停机迁移' },
+      { text: 'etcd 常用命令', link: '03-03-etcd-常用命令' },
+      { text: 'etcd compact 和 内存', link: '03-06-etcd-compact-和-内存' },
+      { text: 'etcd 错误处理', link: '04-01-etcd-错误处理' },
     ]
   },{
     text: '达梦8',
     base: '/03-databases/09-达梦8/',
-    collapsed: false,
+    collapsed: true,
     items: [
       { text: '达梦8 单机安装', link: '02-01-达梦8-单机安装' },
       { text: '达梦8 单机静默安装', link: '02-02-达梦8-单机静默安装' },
@@ -413,7 +408,7 @@ function sidebarDatabases(): DefaultTheme.SidebarItem[] {
       { text: '环境与工具', base: '/01-tools/', link: '05-01-Git-使用' },
       { text: '开发语言', base: '/02-languages/01-C++/', link: '01-02-C++开发环境准备' },
       { text: '存储与数据库', base: '/03-databases/01-Ceph/', link: '01-02-ceph-二进制部署-Ubuntu-22.04' },
-      { text: 'kubernetes', base: '/04-kubernetes/01-kubernetes-基础/', link: '01-01-二进制-部署-k8s-Centos7.9' },
+      { text: 'kubernetes', base: '/04-kubernetes/01-Kubernetes-基础/', link: '01-01-二进制-部署-k8s-Centos7.9' },
       { text: '系统与软件', base: '/05-linux/02-Linux/', link: '03-03-Linux-笔记' }
     ]
   }]
@@ -426,7 +421,7 @@ function sidebarKubernetes(): DefaultTheme.SidebarItem[] {
     collapsed: false,
     items: [
       { text: '二进制 部署 k8s - Centos7.9', link: '01-01-二进制-部署-k8s-Centos7.9' },
-      { text: 'RKE 部署 k8s - Centos 7.9', link: '01-02-RKE-部署-k8s-Centos-7.0' },
+      { text: 'RKE 部署 k8s - Centos 7.9', link: '01-02-RKE-部署-k8s-Centos-7.9' },
       { text: 'RKE 部署 k8s - Ubuntu 22.04', link: '01-03-RKE-部署-k8s-Ubuntu-22.04' },
       { text: 'RKE2 部署 k8s - Centos7.9', link: '01-04-RKE2-部署-k8s-Centos7.9' },
       { text: 'Kubernetes 资源清单', link: '01-05-Kubernetes-资源清单' },
@@ -461,7 +456,7 @@ function sidebarKubernetes(): DefaultTheme.SidebarItem[] {
       { text: '环境与工具', base: '/01-tools/', link: '05-01-Git-使用' },
       { text: '开发语言', base: '/02-languages/01-C++/', link: '01-02-C++开发环境准备' },
       { text: '存储与数据库', base: '/03-databases/01-Ceph/', link: '01-02-ceph-二进制部署-Ubuntu-22.04' },
-      { text: 'kubernetes', base: '/04-kubernetes/01-kubernetes-基础/', link: '01-01-二进制-部署-k8s-Centos7.9' },
+      { text: 'kubernetes', base: '/04-kubernetes/01-Kubernetes-基础/', link: '01-01-二进制-部署-k8s-Centos7.9' },
       { text: '系统与软件', base: '/05-linux/02-Linux/', link: '03-03-Linux-笔记' }
     ]
   }]
@@ -495,7 +490,7 @@ function sidebarLinux(): DefaultTheme.SidebarItem[] {
     ]
   },{
     text: 'Software',
-    base: '/05-Linux/03-Software/',
+    base: '/05-linux/03-Software/',
     collapsed: false,
     items: [
       { text: 'Jenkins', link: '01-01-Jenkins' },
@@ -515,7 +510,7 @@ function sidebarLinux(): DefaultTheme.SidebarItem[] {
       { text: '环境与工具', base: '/01-tools/', link: '05-01-Git-使用' },
       { text: '开发语言', base: '/02-languages/01-C++/', link: '01-02-C++开发环境准备' },
       { text: '存储与数据库', base: '/03-databases/01-Ceph/', link: '01-02-ceph-二进制部署-Ubuntu-22.04' },
-      { text: 'kubernetes', base: '/04-kubernetes/01-kubernetes-基础/', link: '01-01-二进制-部署-k8s-Centos7.9' },
+      { text: 'kubernetes', base: '/04-kubernetes/01-Kubernetes-基础/', link: '01-01-二进制-部署-k8s-Centos7.9' },
       { text: '系统与软件', base: '/05-linux/02-Linux/', link: '03-03-Linux-笔记' }
     ]
   }]
