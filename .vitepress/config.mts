@@ -173,7 +173,7 @@ function sidebarLanguages(): DefaultTheme.SidebarItem[] {
       { text: 'Rust 开源库整理', link: '02-01-Rust-开源库整理' },
       { text: 'Rust 基础语法', link: '03-03-Rust-基础语法' },
       { text: 'Rust 包-错误处理-测试', link: '03-04-Rust-包-错误处理-测试' },
-      // { text: 'Rust 智能指针-并发-高级特性', link: '03-05-Rust-智能指针-并发-高级特性' },
+      { text: 'Rust 智能指针-并发-高级特性', link: '03-05-Rust-智能指针-并发-高级特性' },
     ]
   },{
     text: 'Go',
@@ -256,10 +256,10 @@ function sidebarDatabases(): DefaultTheme.SidebarItem[] {
     items: [
       { text: 'Ceph 部署须知', link: '01-01-Ceph-部署须知' },
       { text: 'ceph 二进制部署 Ubuntu 22.04', link: '01-02-ceph-二进制部署-Ubuntu-22.04' },
-      { text: 'ceph cephadm 部署 Ubuntu 22.04', link: '01-03-ceph-cephadm-部署-Ubuntu-22.04' },
-      { text: 'ceph deploy 部署集群 Centos 7.9', link: '01-04-ceph-deploy-部署集群-Centos-7.9' },
-      { text: 'ceph ansible 部署集群 Centos7.9', link: '01-05-ceph-ansible-部署集群-Centos7.9' },
-      { text: 'ceph anbile 部署的集群手动创建rgw节点', link: '01-06-ceph-anbile-部署的集群手动创建rgw节点' },
+      { text: 'cephadm-部署-Ubuntu 22.04', link: '01-03-ceph-cephadm-部署-Ubuntu-22.04' },
+      { text: 'ceph-deploy部署-Centos 7.9', link: '01-04-ceph-deploy-部署集群-Centos-7.9' },
+      { text: 'ceph-ansible部署-Centos7.9', link: '01-05-ceph-ansible-部署集群-Centos7.9' },
+      { text: 'ceph-anbile集群手动创建rgw', link: '01-06-ceph-anbile-部署的集群手动创建rgw节点' },
       { text: 'ceph集群配置文件', link: '02-01-ceph集群配置文件' },
       { text: 'ceph 常见运维场景', link: '03-01-ceph-常见运维场景' },
       { text: 'ceph 常用操作', link: '03-02-ceph-常用操作' },
