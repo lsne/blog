@@ -1,3 +1,4 @@
+# MongoDB 副本集和分片
 ## 副本集操作
 
 #### 获取副本集IP列表
@@ -44,7 +45,7 @@ rs.reconfig(cfg)
 > 查询 `morpheus.cert` 表中的 `certs/92c1588e85af2201ce7915e8538b492f605b80c6` 属于哪个分片
 
 ```js
-db.chunks.find({"ns" : "morpheus.cert", "max.uri":{"$gte":"certs/92c1588e85af2201ce7915e8538b492f605b80c6"}, "min.uri":{"$lte":"certs/92c1588e85af2201ce7915e8538b492f605b80c6"}});
+db.chunks.find({"ns" : "db01.col01", "max.uri":{"$gte":"certs/92c1588e85af2201ce7915e8538b492f605b80c6"}, "min.uri":{"$lte":"certs/92c1588e85af2201ce7915e8538b492f605b80c6"}});
 ```
 
 #### Mongos 刷新配置
@@ -71,10 +72,10 @@ db.serverCmdLineOpts().parsed.sharding.configDB
 
 ```javascript
 // 6.0 版本之后不需要这一步了。 不过还可以使用它来指定主分片
-sh.enableSharding("db01") 
+sh.enableSharding("db01")
 
 // 指定 push 库的主分片为 md5001
-sh.enableSharding("db01", "md5001") 
+sh.enableSharding("db01", "md5001")
 ```
 
 #### 添加片键
@@ -86,6 +87,7 @@ sh.shardCollection( "db01.col01", { "msg_id" : 1 } )
 // 给集合 db01.col01 以 msg_id 进行 hashed 分片, 并初始化生成 16000 个 chunks
 // 片键必须是 hashed 类型, 才可以使用 numInitialChunks 初始化 chunks 数量
 // 初始化 chunks 数量, 可以避免大量写入操作导致的 chunk balancer 影响性能
+// 最大 chunks 数量为: 8192 * 分片数量
 db.runCommand({ shardcollection: "ceshi.test_col01", key: {"msg_id": "hashed"},numInitialChunks:16000})
 ```
 

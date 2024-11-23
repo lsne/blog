@@ -1,9 +1,14 @@
+# MySQL 备份与恢复
 ## MySQL 备份与恢复
 
 ### 导出为 `csv` 格式文件
 
 ```sh
+# sql 语句比较短的情况
 mysql -h 10.249.22.179 -P 11086 -u user01  -p123456 -D lsne -s -N -e "select * from t1" > aa.csv
+
+# sql 语句如果比较长
+mysql --login-path=root_info -A -S /tmp/mysql3306.sock -D haina -Be "$(cat a.sql)" > 3306.csv
 ```
 
 ### mysqldump

@@ -75,15 +75,19 @@
 | mysql5.7         | dyhinc 行格式 265个字段导致报错 8126 长度限制                                                                                                                                     | 一个块 16K, 一个块至少要存两行数据。 但是可以设置 set innodb_strict_mode = off; 取消严格模式进行创建。 这样会执行成功并且给出一个 warning。 严重不建议                                                               |    |
 | mysql 8.0        | alter table 后 Waiting for table metadata lock 问题                                                                                                                    | alter 时有大量事务导致                                                                                                |    |
 
-    例1:
-    SELECT * FROM `ytc_ip_address` WHERE ip_start_int <= 908379413 and ip_start_int >= 908279413 and ip_end_int >= 908379413 and ip_end_int <= 908479413 ORDER BY `ytc_ip_address`.`es_id` LIMIT 1
+#### sql 优化 limit 问题
 
-    如果where有索引，order by也有索引, 默认情况下，先执行where，扫描用到的索引，找出符合条件的行，再按照order by在内存中进行排序。
+```
+SELECT * FROM `ytc_ip_address` WHERE ip_start_int <= 908379413 and ip_start_int >= 908279413 and ip_end_int >= 908379413 and ip_end_int <= 908479413 ORDER BY `ytc_ip_address`.`es_id` LIMIT 1
 
-    但是如果在1的情况下，有limit，并且limit比较小, 则会先执行order by，扫描用到的索引，再回表判断where是否符合条件。取够limit条符合条件的行就返回了，并不会扫描完所有索引。
+如果where有索引，order by也有索引, 默认情况下，先执行where，扫描用到的索引，找出符合条件的行，再按照order by在内存中进行排序。
 
-    优化方式用强制索引 force index()
-    SELECT * FROM `ytc_ip_address` force index(wangzhicheng_start) WHERE ip_start_int <= 908379413 and ip_start_int >= 908279413 and ip_end_int >= 908379413 and ip_end_int <= 908479413 ORDER BY `ytc_ip_address`.`es_id` LIMIT 1;
+但是如果在1的情况下，有limit，并且limit比较小, 则会先执行order by，扫描用到的索引，再回表判断where是否符合条件。取够limit条符合条件的行就返回了，并不会扫描完所有索引。
+
+优化方式用强制索引 force index()
+SELECT * FROM `ytc_ip_address` force index(wangzhicheng_start) WHERE ip_start_int <= 908379413 and ip_start_int >= 908279413 and ip_end_int >= 908379413 and ip_end_int <= 908479413 ORDER BY `ytc_ip_address`.`es_id` LIMIT 1;
+```
+
 
 ## 基础知识
 

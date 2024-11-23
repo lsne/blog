@@ -1,5 +1,4 @@
-
-## 基本操作
+# MongoDB 基本操作
 
 ### 基本知识点
 
@@ -72,7 +71,7 @@ DBQuery.shellBatchSize = 300
 #### 自然倒序排序
 
 ```js
-db.col01.sort( { $natural: -1 } )
+db.col01.find().sort( { $natural: -1 } ).limit(1)
 ```
 
 #### 字符串按数值排序
@@ -84,7 +83,7 @@ db.remote_execute.find({"orders": 123123123 },{'_id':0,"host":1,"stdout":1}).col
 #### 字符串正则匹配查询
 
 ```js
-db.remote_execute.find({"orders":1673317277500, "host": { "$regex": ".*shjt2.*"}},{'_id':0,"host":1,"stdout":1}).collation({"locale": "zh", numericOrdering:true}).sort({stdout:1})
+db.remote_execute.find({"orders": 1673317277500 , "host": { "$regex": ".*shjt2.*"}},{'_id':0,"host":1,"stdout":1}).collation({"locale": "zh", numericOrdering:true}).sort({stdout:1})
 ```
 
 #### 查询集合大小

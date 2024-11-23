@@ -1,4 +1,4 @@
-## Postgres 主从
+# Postgres 主从
 
 #### 主库执行, 查看主从状态
 

@@ -1,4 +1,4 @@
-
+# MongoDB 扫描 chunk 大小
 #### 扫描所有标记为 `jumbo` 的 `chunk` 的大小
 
 > 大小以 `MB` 为单位输出, 并取整

@@ -1,3 +1,4 @@
+# Obsidian 插件设置
 
 ```
 Git 如果 obsidian 打开的目录是一个 git 仓库, 这个插件会自动 push 和 pull

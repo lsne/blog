@@ -1,4 +1,4 @@
-
+# 基本操作
 ## 管理操作
 
 ### 在线开启 GTID
@@ -97,6 +97,13 @@ mysql> BEGIN; COMMIT;
 mysql> SET SESSION GTID_NEXT = AUTOMATIC;
 
 mysql> START SLAVE;
+```
+
+#### 查看内存使用量
+
+```sql
+-- 98 表示当前库中有 98 个连接
+SELECT ( @@innodb_buffer_pool_size + @@innodb_log_buffer_size + ( @@sort_buffer_size + @@join_buffer_size + @@binlog_cache_size + @@thread_stack + @@tmp_table_size ) * 98 ) / (1024 * 1024 * 1024) AS MAX_MEMORY_GB;
 ```
 
 #### 权限导出

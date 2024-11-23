@@ -1,4 +1,4 @@
-## PostgreSQL 参数
+# PostgreSQL 参数
 
 ```
 参数分为:

@@ -1,4 +1,4 @@
-## kubernetes 添加 ceph-csi 插件
+# kubernetes 添加 ceph-csi 插件
 
 ### 前提: 对 Ceph 初始化 rdb 池 (Ceph 集群的操作)
 

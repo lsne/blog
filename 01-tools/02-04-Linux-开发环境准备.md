@@ -1,3 +1,5 @@
+# linux 开发环境
+
 ### 1. 家目录创建常用文件夹
 
 ```sh
@@ -13,10 +15,10 @@ mkdir -p .go
 
 ### 2. 安装各语言环境
 
-- [安装 Rust   环境](../03_Languages/01_Rust/01_Rust_安装.md)
-- [安装 Go     环境](../03_Languages/02_Go/01_Go_安装.md)
-- [安装 Python 环境](../03_Languages/04_Python/01_Python3_编译安装装.md)
-- [安装 Nodejs 环境](../03_Languages/06_Nodejs/01_Nodejs_安装.md)
+- [安装 Rust 环境](../02-languages/02-Rust/01-01-Rust-开发环境准备)
+- [安装 Go 环境](../02-languages/03-Go/01-01-Go-开发环境准备)
+- [安装 Python 环境](../02-languages/04-Python/01-01-Python3-编译安装)
+- [安装 Nodejs 环境](../02-languages/06-Node.js/01-01-Node.js-安装部署)
 
 ### 3. 设置环境变量: `vim ~/.bashrc  `
 

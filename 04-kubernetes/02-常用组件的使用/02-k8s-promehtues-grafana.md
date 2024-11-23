@@ -1,4 +1,4 @@
-
+# k8s prometheus grafana
 ### 所有k8s集群节点创建数据目录和prometheus配置文件
 
 ```yaml

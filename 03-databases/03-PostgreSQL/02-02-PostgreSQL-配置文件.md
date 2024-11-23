@@ -63,7 +63,7 @@ host  	all     	postgres	127.0.0.1/32	scram-sha-256
 
 ### 系统用户与 PG 用户映射: `pg_ident.conf`
 
-在 pg_hba.conf 中如果设置了 `ident` 方式访问数据库, 则需要在 `pg_ident.conf` 文件中完成 系统用户与 PG 用户映射关系的
+在 pg_hba.conf 中如果设置了 `ident` 方式访问数据库, 则需要在 `pg_ident.conf` 文件中完成 系统用户与 PG 用户映射关系的  
 
 ### 用户配置文件: postgresql.conf.user
 
@@ -71,8 +71,8 @@ host  	all     	postgres	127.0.0.1/32	scram-sha-256
 
 ### 动态配置文件: postgresql.auto.conf
 
-动态参数文件, 实例中修改后, 自动刷新到该文件。 
-不推荐手动修改。 由实例维护, ALTER SYSTEM 命令修改的参数将保存在该文件
+动态参数文件, 实例中修改后, 自动刷新到该文件。  
+不推荐手动修改。 由实例维护, ALTER SYSTEM 命令修改的参数将保存在该文件  
 
 #### postgresql.conf.user 配置文件示例
 
@@ -192,162 +192,162 @@ vacuum_cost_page_dirty           = 20 # 在每一页中发现死元组时写入�
 
 #### postgresql.conf 配置文件说明
 
-**work_mem**
-	默认: 4MB - 线程独享
-	建议实例级设置默认值, 特殊连接在会话级单独设置
-	如果设置  4MB, 每一个连接会话都会占用 4MB
-	每个会话在进行 order by, distinct, merge-join, hash-join 等操作时可用的最大内存
-	主要用于写入临时文件之前内部排序操作和散列表使用的内存量
-	线程独占, 即假设你设置为30MB，则40个用户同时执行查询排序，很快就会使用1.2GB的实际内存
-	对于  OLTP 系统, 并发很多的简单SQL, 设置 16MB 完全够用
-	对于 OLAP 系统, 复杂的查询频率比较低的SQL, 可以设置 256M
-	也可以在查询之前在会话级别设置该参数
-	此参数如果设置过大, 相应的 max_connections 应该减少, 避免真出现同时所有连接全都执行大排序操作, 导致内存崩溃
+- work_mem
+	- 默认: 4MB - 线程独享
+	- 建议实例级设置默认值, 特殊连接在会话级单独设置
+	- 如果设置  4MB, 每一个连接会话都会占用 4MB
+	- 每个会话在进行 order by, distinct, merge-join, hash-join 等操作时可用的最大内存
+	- 主要用于写入临时文件之前内部排序操作和散列表使用的内存量
+	- 线程独占, 即假设你设置为30MB，则40个用户同时执行查询排序，很快就会使用1.2GB的实际内存
+	- 对于  OLTP 系统, 并发很多的简单SQL, 设置 16MB 完全够用
+	- 对于 OLAP 系统, 复杂的查询频率比较低的SQL, 可以设置 256M
+	- 也可以在查询之前在会话级别设置该参数
+	- 此参数如果设置过大, 相应的 max_connections 应该减少, 避免真出现同时所有连接全都执行大排序操作, 导致内存崩溃
 	
-**maintenance_work_mem**
-	默认: 64MB - 线程独享
-	建议实例级设置默认值, 特殊连接在会话级单独设置
-	在执行 vacuum, restore, create index, add foreign key, alter table 等任务时使用
+- maintenance_work_mem
+	- 默认: 64MB - 线程独享
+	- 建议实例级设置默认值, 特殊连接在会话级单独设置
+	- 在执行 vacuum, restore, create index, add foreign key, alter table 等任务时使用
 
-**temp_buffers**
-	默认:  - 线程独享
-	每个会话使用的最大临时缓冲区
+- temp_buffers
+	- 默认:  - 线程独享
+	- 每个会话使用的最大临时缓冲区
 
-**shared_buffers**
-	共享缓冲区,  建议设置为物理内存的 1/4
-	PostgreSQL使用自己的缓冲区(shared_buffers)，也使用Linux操作系统内核缓冲OS Cache，这就说明数据两次存储在内存中
+- shared_buffers
+	- 共享缓冲区,  建议设置为物理内存的 1/4
+	- PostgreSQL使用自己的缓冲区(shared_buffers)，也使用Linux操作系统内核缓冲OS Cache，这就说明数据两次存储在内存中
 
-**wal_buffer**
-	wal 日志缓冲区, 建议设置 16MB 左右, 如果事务非常繁忙, 可以适当调大
+- wal_buffer
+	- wal 日志缓冲区, 建议设置 16MB 左右, 如果事务非常繁忙, 可以适当调大
 
-**effective_cache_size**  
-	默认: 4G, 建议使用默认值
-	也可以设置到 pgsql 实际可用内存的 50% 到 75%	
-	值越高, 优化器越倾向于走索引。
-	提供一个可用于磁盘缓存的内存量的估量, 它只是一个建议值, 不会实际分配内存。 
+- effective_cache_size  
+	- 默认: 4G, 建议使用默认值
+	- 也可以设置到 pgsql 实际可用内存的 50% 到 75%	- 
+	- 值越高, 优化器越倾向于走索引。
+	- 提供一个可用于磁盘缓存的内存量的估量, 它只是一个建议值, 不会实际分配内存。 
 
-**fsync**
-	默认: on
-	确保 wal 数据写到磁盘 `fsync()`, 才响应成功
-	如果关闭, 在发生故障时, 可能会导致数据丢失
+- fsync
+	- 默认: on
+	- 确保 wal 数据写到磁盘 `fsync()`, 才响应成功
+	- 如果关闭, 在发生故障时, 可能会导致数据丢失
 
-**synchronous_commit**
-	事务是否等待 wal 写入磁盘，再返回给客户端成功
-	 off  关闭， 不等待 wal 写入磁盘
-	 on  默认, wal 确认写到磁盘再响应成功
-	 local  
-	 remote_write 等待流复制的备节点收到 wal 日志并写入备节点 wal buffer 缓存
-	 remote_apply 等待流复制的备节点收到 wal 日志, 并将 wal 日志写入磁盘, 并完成事务回放 
+- synchronous_commit
+	- 事务是否等待 wal 写入磁盘，再返回给客户端成功
+	-  off  关闭， 不等待 wal 写入磁盘
+	-  on  默认, wal 确认写到磁盘再响应成功
+	-  local  
+	-  remote_write 等待流复制的备节点收到 wal 日志并写入备节点 wal buffer 缓存
+	-  remote_apply 等待流复制的备节点收到 wal 日志, 并将 wal 日志写入磁盘, 并完成事务回放 
 
-**synchronous_standby_names**
-	备库名称, 如果设置了该参数, 则 `synchronous_commit` 参数也将等待备库生效
-	设置 `synchronous_standby_names` 后, `synchronous_commit` 参数的值作用:
-	on: 等待 wal 写入到备库
-	remote_write:  等待 wal 写到备节点, 但不等备节点刷盘
-	on: 如果有备库, 备库wal刷盘后返回
-	remote_apply: 等待 wal 在备库刷完盘, 然后完成 apply 重放, 才响应
-	
-**checkpoint_timeout**
-	默认: 300
-	间隔多长时间产生一次检查点
-	如果每次检查点操作要刷盘的数据块太多, 会导致磁盘IO压力比较大, 影响数据库性能
-	设置时间长一点, 会减少磁盘IO, 提高性能, 但会延长数据库崩溃时的恢复时间
-	
-**checkpoint_completion_target**
-	默认: 0.5
-	每次的检查点操作完成的时长 与 每次检查点时间间隔的比例。
-	值范围 0 ~ 1, 默认 0.5 即默认 150 秒完成
-	如果设置 0.7, 并且每 300 秒产生一次检查点. 每次检查点操作要在 300 * 0.7 = 210 秒完成。
+- synchronous_standby_names
+	- 备库名称, 如果设置了该参数, 则 `synchronous_commit` 参数也将等待备库生效
+	- 设置 `synchronous_standby_names` 后, `synchronous_commit` 参数的值作用:
+	- on: 等待 wal 写入到备库
+	- remote_write:  等待 wal 写到备节点, 但不等备节点刷盘
+	- on: 如果有备库, 备库wal刷盘后返回
+	- remote_apply: 等待 wal 在备库刷完盘, 然后完成 apply 重放, 才响应
+	- 
+- checkpoint_timeout
+	- 默认: 300
+	- 间隔多长时间产生一次检查点
+	- 如果每次检查点操作要刷盘的数据块太多, 会导致磁盘IO压力比较大, 影响数据库性能
+	- 设置时间长一点, 会减少磁盘IO, 提高性能, 但会延长数据库崩溃时的恢复时间
+	- 
+- checkpoint_completion_target
+	- 默认: 0.5
+	- 每次的检查点操作完成的时长 与 每次检查点时间间隔的比例。
+	- 值范围 0 ~ 1, 默认 0.5 即默认 150 秒完成
+	- 如果设置 0.7, 并且每 300 秒产生一次检查点. 每次检查点操作要在 300 * 0.7 = 210 秒完成。
 
-**full_page_writes**
-	默认: on
-	把数据块整个写入到WAL日志中, 是为了解决块不一致问题，保护数据的完整性
-	全页写会导致WAL日志膨胀, 增加额外I/O
-	如果文件系统能够实现 阻止部分写情况(不允许出现写半个数据块的情况), 则 pgsql 可以禁用全页写功能
-	全页写模式:
-	1. 非强制模式:
-		最近一次检查点之后, 第一次修改的数据块会进行全页写, 在下一次检查点之前, 第二次开始, 之后的多次修改这一数据块改为记录事务到wal日志.  直到下一次检查点。
-	2. 强制模式:
-		当用 pg_basebackup 备份时, 会自动执行强制模式, 备份期间, 被修改的数据块会全部写入WAL中。 (pg_basebackup 会自动调用 pg_start_backup() 函数)
-	3. 当执行 pg_start_backup() 函数时, 系统也会进入全页写模式。 执行 pg_stop_backup() 函数关闭全页写模式
+- full_page_writes
+	- 默认: on
+	- 把数据块整个写入到WAL日志中, 是为了解决块不一致问题，保护数据的完整性
+	- 全页写会导致WAL日志膨胀, 增加额外I/O
+	- 如果文件系统能够实现 阻止部分写情况(不允许出现写半个数据块的情况), 则 pgsql 可以禁用全页写功能
+	- 全页写模式:
+	- 1. 非强制模式:
+	- 	- 最近一次检查点之后, 第一次修改的数据块会进行全页写, 在下一次检查点之前, 第二次开始, 之后的多次修改这一数据块改为记录事务到wal日志.  直到下一次检查点。
+	- 2. 强制模式:
+	- 	- 当用 pg_basebackup 备份时, 会自动执行强制模式, 备份期间, 被修改的数据块会全部写入WAL中。 (pg_basebackup 会自动调用 pg_start_backup() 函数)
+	- 3. 当执行 pg_start_backup() 函数时, 系统也会进入全页写模式。 执行 pg_stop_backup() 函数关闭全页写模式
 
-**max_connections**
-	最大连接数
-	 最大连接数， 根据历史连接最大值判断, 一般不建议超过1000
+- max_connections
+	- 最大连接数
+	-  最大连接数， 根据历史连接最大值判断, 一般不建议超过1000
 
-**superuser_reserved_connections**
-	最大连接数满了之后, 超级管理员的保留连接数
+- superuser_reserved_connections
+	- 最大连接数满了之后, 超级管理员的保留连接数
 
-**min_wal_size**
-	默认: 
+- min_wal_size
+	- 默认: 
 
-**max_wal_size**
-	默认: 1GB
-	保留的 wal 日志最大大小
+- max_wal_size
+	- 默认: 1GB
+	- 保留的 wal 日志最大大小
 
-**wal_keep_size**
-	保持与 max_wal_size 一致
+- wal_keep_size
+	- 保持与 max_wal_size 一致
 
-**wal_keep_segments**
-	已经废弃
-	PG 13 之前的参数, 现在已经被 wal_keep_size 代替
-	保留的 wal 日志文件个数, 建议 wal 文件个数* 16MB = max_wal_size
+- wal_keep_segments
+	- 已经废弃
+	- PG 13 之前的参数, 现在已经被 wal_keep_size 代替
+	- 保留的 wal 日志文件个数, 建议 wal 文件个数* 16MB = max_wal_size
 
-**max_worker_processes**
-	如果 SQL 中没有聚合函数, 则不会触发并行处理
-	设置 PG 实例 workers 的最大数量, 此参数不能超过主机上实际的CPU核数
-	
-**max_paraller_workers**
-	已经弃用
-	并行池中 workers 最大数量, 建议和 `max_worker_processes` 保持一致
+- max_worker_processes
+	- 如果 SQL 中没有聚合函数, 则不会触发并行处理
+	- 设置 PG 实例 workers 的最大数量, 此参数不能超过主机上实际的CPU核数
+	- 
+- max_paraller_workers
+	- 已经弃用
+	- 并行池中 workers 最大数量, 建议和 `max_worker_processes` 保持一致
 
-**max_parallel_workers_per_gather**
-	每个SQL操作可以使用的 workers 最大数量,  建议不超过 `max_paraller_workers` 的三分之一
+- max_parallel_workers_per_gather
+	- 每个SQL操作可以使用的 workers 最大数量,  建议不超过 `max_paraller_workers` 的三分之一
 
-**min_parallel_table_scan_size**
-	每个  worker 最小扫描的 table 大小。 
-	实际每一个 worker 的增加都会在上一个 worker 扫描的基础上增加 3 倍。
-	比如: 该参数设置 100MB, 则 100 MB 以内会使用 1 worker,  300MB以内使用 2 worker, 900MB 以内使用 3 worker， 2700MB 以内使用 4 worker, 8100MB 以内的数据扫描使用 5 worker 
+- min_parallel_table_scan_size
+	- 每个  worker 最小扫描的 table 大小。 
+	- 实际每一个 worker 的增加都会在上一个 worker 扫描的基础上增加 3 倍。
+	- 比如: 该参数设置 100MB, 则 100 MB 以内会使用 1 worker,  300MB以内使用 2 worker, 900MB 以内使用 3 worker， 2700MB 以内使用 4 worker, 8100MB 以内的数据扫描使用 5 worker 
 
-**min_parallel_index_scan_size**
-	每个  worker 最小扫描的 index 大小。 实际是每超过该参数值的3倍才会多使用一个 worker
-	实际效果同 `min_parallel_table_scan_size`
+- min_parallel_index_scan_size
+	- 每个  worker 最小扫描的 index 大小。 实际是每超过该参数值的3倍才会多使用一个 worker
+	- 实际效果同 `min_parallel_table_scan_size`
 
-**parallel_setup_cost**
-	当查询成本累计时间超过该值时, 才使用并行查询
+- parallel_setup_cost
+	- 当查询成本累计时间超过该值时, 才使用并行查询
 
-**parallel_tuple_cost**
-	默认: 0.1
-	优化器从一个 worker 传递记录到另一个 woker 的代价
-	
-**vacuum_freeze_min_age**
-	惰性冻结使用, 默认 5千万, 超过这个值的事务将被冻结
-	当前事物ID为: 2000,   vacuum_freeze_min_age 设置为: 1600
-	则 2000 - 1600 = 400 , 则小于 400 的事务ID将会被冻结
+- parallel_tuple_cost
+	- 默认: 0.1
+	- 优化器从一个 worker 传递记录到另一个 woker 的代价
+	- 
+- vacuum_freeze_min_age
+	- 惰性冻结使用, 默认 5千万, 超过这个值的事务将被冻结
+	- 当前事物ID为: 2000,   vacuum_freeze_min_age 设置为: 1600
+	- 则 2000 - 1600 = 400 , 则小于 400 的事务ID将会被冻结
 
-**vacuum_freeze_table_age**
-	急性冻结使用, 默认1亿5千万
+- vacuum_freeze_table_age
+	- 急性冻结使用, 默认1亿5千万
 
-**log_autovacuum_min_duration**
-	记录 autovacuum 什么时候做, 操作了哪些表。默认 -1 不记录
-	-1 表示不记录
-	0 表示记录所有的
-	250ms, 1s, 1min, 1h, 1d  表示只记录 vacuum 的时间超过该值的操作
+- log_autovacuum_min_duration
+	- 记录 autovacuum 什么时候做, 操作了哪些表。默认 -1 不记录
+	- -1 表示不记录
+	- 0 表示记录所有的
+	- 250ms, 1s, 1min, 1h, 1d  表示只记录 vacuum 的时间超过该值的操作
 
-**bgwriter_delay**
-	后台写进程多长时间唤醒一次, 默认 200 毫秒
-	
-**bgwriter_lru_maxpages**
-	后台进程每次最多刷新多少个块, 默认 100 个块
+- bgwriter_delay
+	- 后台写进程多长时间唤醒一次, 默认 200 毫秒
+	- 
+- bgwriter_lru_maxpages
+	- 后台进程每次最多刷新多少个块, 默认 100 个块
 
 
-**toast_max_chunk_size**
-	最新版本找不到这参数了
-	最大的 chunk 大小, 默认 2KB
-	
-**toast_tuple_target**
-	最新版本找不到这参数了
-	toast压缩或移动超过该值的部分, 默认 2KB
+- toast_max_chunk_size
+	- 最新版本找不到这参数了
+	- 最大的 chunk 大小, 默认 2KB
+	- 
+- toast_tuple_target
+	- 最新版本找不到这参数了
+	- toast压缩或移动超过该值的部分, 默认 2KB
 
 ### 暂时未整理的参数
 

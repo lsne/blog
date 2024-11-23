@@ -1,4 +1,4 @@
-# mysql MGR
+# MySQL MGR
 
 ## 部署
 

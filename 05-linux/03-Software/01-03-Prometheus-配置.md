@@ -90,6 +90,7 @@ remote_read:
   - test1.lsnan.cn:9100
   - test2.lsnan.cn:9100
 ```
+
 或者用 json 格式
 
 ```linux

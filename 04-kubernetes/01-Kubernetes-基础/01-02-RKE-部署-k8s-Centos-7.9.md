@@ -1,3 +1,4 @@
+# RKE 部署 k8s Centos 7.9
 ## 环境准备
 
 ### 1. 设置 /etc/hosts

@@ -1,3 +1,5 @@
+# PostgreSQL 用户与权限
+
 ## 刷新 `pg_hba.conf` 配置信息
 
 ```sh

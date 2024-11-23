@@ -1,5 +1,4 @@
-
-## pg_auto_failover 高可用测试
+# pg_auto_failover 高可用测试
 
 ### 结论
 

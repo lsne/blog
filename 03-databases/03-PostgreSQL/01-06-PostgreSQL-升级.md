@@ -1,5 +1,4 @@
-
-## PostgreSQL 升级
+# PostgreSQL 升级
 
 ### pg_upgrate 升级
 

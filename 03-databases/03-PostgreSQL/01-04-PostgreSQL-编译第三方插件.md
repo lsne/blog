@@ -1,5 +1,4 @@
-
-## 编译第三方插件
+# 编译第三方插件
 
 ```sql
 select name from pg_available_extensions;  # 查看可用插件

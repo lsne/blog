@@ -1,3 +1,4 @@
+# RKE 部署 k8s Ubuntu 22.04
 ## 环境准备
 
 ### 1. 设置 /etc/hosts

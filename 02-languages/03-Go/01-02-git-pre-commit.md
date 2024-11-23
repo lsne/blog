@@ -1,3 +1,5 @@
+# git-pre-commit
+
 ```sh
 #!/bin/sh
 STAGED_GO_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".go$")

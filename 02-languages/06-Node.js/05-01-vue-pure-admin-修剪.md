@@ -1,4 +1,4 @@
-## vue-pure-admin 修剪
+# vue-pure-admin 修剪
 
 ### 使用精简包
 
