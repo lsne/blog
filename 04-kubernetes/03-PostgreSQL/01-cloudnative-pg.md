@@ -43,3 +43,4 @@ kubectl cnpg --help
 #### 安装 operator
 
 1. 下载
+## 看一下新仓库 obsidian 效果
